@@ -1,0 +1,185 @@
+/* ── PAGE ── */
+.error-page {
+  min-height: 100vh;
+  background-color: #17353c;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── BACKGROUND IMAGE ── */
+.error-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+}
+
+/* ── OVERLAY 1: uniform base dim ──
+   A flat semi-transparent layer that darkens the whole image
+   evenly before anything else. This is the foundation.
+   The image is still clearly visible through it.
+────────────────────────────────────────────────────── */
+.error-overlay-radial {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(10, 26, 30, 0.52);
+}
+
+/* ── OVERLAY 2: gradient depth ──
+   Darkens the bottom third (where text sits) more aggressively.
+   Keeps the top light so the beautiful wall/corner shows.
+   Direction is to top: darkest at bottom, fades upward.
+────────────────────────────────────────────────────── */
+.error-overlay-linear {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(10, 26, 30, 0.7) 0%, /* very dark at bottom */ rgba(10, 26, 30, 0.3) 45%, /* medium in the middle */ rgba(10, 26, 30, 0.05) 75%, /* barely there at top */ transparent 100%);
+}
+
+/* ── MAIN CONTENT ── */
+.error-main {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
+  padding: 0 24px 56px;
+}
+
+/* ── EYEBROW ──
+   BUG FIX: was var(--color-strip-green) — undefined + missing ;
+   CONTRAST: lime at 70% opacity on dark overlay ≈ 8:1 ✓
+────────────────────────────────────────────────────── */
+.error-eyebrow {
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(225, 254, 8, 0.7); /* ← was var(--color-strip-green) */
+  margin-bottom: 12px; /* ← was missing because no ; above */
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* ── 404 NUMBER ──
+   CONTRAST: #e1fe08 lime + text-shadow on overlay ≈ 11:1 ✓
+────────────────────────────────────────────────────── */
+.error-number {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(80px, 18vw, 180px);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.88;
+  color: #e1fe08;
+  text-shadow:
+    0 0 40px rgba(0, 0, 0, 0.55),
+    0 3px 12px rgba(0, 0, 0, 0.65);
+  margin-bottom: 16px;
+}
+
+/* ── HEADING ──
+   CONTRAST line 1: #ffffff white + shadow ≈ 15:1 ✓ (upgraded from cream)
+   CONTRAST line 2: #e1fe08 lime + shadow  ≈ 11:1 ✓
+────────────────────────────────────────────────────── */
+.error-heading {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(20px, 4.5vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.error-heading-line1 {
+  display: block;
+  color: #ffffff; /* ← upgraded from cream — better contrast */
+}
+
+.error-heading-line2 {
+  display: block;
+  color: #e1fe08;
+}
+
+/* ── BODY TEXT ──
+   BUG FIX: was missing ; after var(--color-cream)
+   which made max-width and margin-bottom both silently fail.
+   CONTRAST: #ffffff white + text-shadow on overlay ≈ 15:1 ✓
+────────────────────────────────────────────────────── */
+.error-body {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(14px, 1.8vw, 17px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88); /* ← was var(--color-cream) + missing ; */
+  max-width: 38ch; /* ← now applies correctly */
+  margin-bottom: 28px; /* ← now applies correctly */
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* ── BUTTONS ── */
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+/* Primary — lime fill: #e1fe08 on #17353c = 11:1 ✓ */
+.error-btn-primary {
+  display: inline-block;
+  background-color: #e1fe08;
+  color: #17353c;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 26px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.error-btn-primary:hover {
+  opacity: 0.88;
+}
+
+/* Secondary — white text on transparent: #ffffff on overlay ≈ 15:1 ✓ */
+.error-btn-secondary {
+  display: inline-block;
+  background-color: transparent;
+  color: #ffffff;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 26px;
+  border-radius: 100px;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+.error-btn-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.9); /* ← was missing ; */
+}
+
+/* ── DESKTOP ── */
+@media (min-width: 768px) {
+  .error-main {
+    justify-content: center;
+    padding: 64px 48px;
+  }
+
+  .error-overlay-linear {
+    background: linear-gradient(to top, rgba(10, 26, 30, 0.75) 0%, rgba(10, 26, 30, 0.35) 40%, rgba(10, 26, 30, 0.05) 70%, transparent 100%);
+  }
+}

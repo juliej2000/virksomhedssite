@@ -1,0 +1,148 @@
+/* 
+   GENERAL.CSS
+   Variables · Reset · Shared styles · Buttons
+   */
+/* --- Colours and font variables --- */
+
+@font-face {
+  font-family: "inter";
+  src: url(../fonts/Inter-VariableFont_opsz\,wght.woff) format("woff");
+}
+
+@font-face {
+  font-family: "spacegrotesk";
+  src: url(../fonts/SpaceGrotesk-VariableFont_wght.woff) format("woff");
+}
+
+:root {
+  --color-dark: #17353c; /* main dark green */
+  --color-teal: #005056; /* darker teal for hover */
+  --color-lime: #e1fe08; /* lime / accent */
+  --color-blue: #97b9ff; /* periwinkle — active underline, Interflora btn */
+  --color-blue-pale: rgba(205, 218, 255, 100); /* pale blue for category icon circles */
+  --color-cream: #f9f7f2; /* page background */
+  --color-text: rgba(23, 53, 60, 0.75);
+  --color-text-muted: rgba(23, 53, 60, 0.5);
+  --color-border: rgba(23, 53, 60, 0.1);
+  --color-on-dark: rgba(249, 247, 242, 0.75);
+  --color-strip-green: rgba(212, 230, 0); /* page background */
+}
+
+/* --- Header --- */
+.nav-logo {
+  padding-left: 140px;
+}
+
+/* --- Bestil nu knap ---*/
+.nav-cta.btn-lime {
+  transition: all 0.2s ease;
+}
+
+.nav-cta.btn-lime:hover {
+  background: #c7ef00;
+  transform: scale(1.02);
+}
+
+/* --- Reset --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- Base body --- */
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-dark);
+  overflow-x: hidden;
+}
+
+/* --- Buttons --- */
+
+/* Lime pill button */
+.btn-lime {
+  display: inline-block;
+  background-color: var(--color-lime);
+  color: var(--color-dark);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 100px;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.btn-lime:hover {
+  opacity: 0.85;
+}
+
+/* Dark pill button */
+.btn-dark {
+  display: inline-block;
+  background-color: var(--color-dark);
+  color: var(--color-lime);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 100px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.btn-dark:hover {
+  background-color: var(--color-teal);
+}
+
+/* Ghost outline button */
+.btn-ghost {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--color-dark);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 11px 22px;
+  border-radius: 100px;
+  border: 1.5px solid var(--color-dark);
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.btn-ghost:hover {
+  background-color: var(--color-dark);
+  color: var(--color-lime);
+}
+
+/* --- Ticker animation --- */
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

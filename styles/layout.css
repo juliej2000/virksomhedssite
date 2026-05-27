@@ -1,0 +1,591 @@
+/* LAYOUT.CSS
+   Navigation · Ticker · Footer · Mobile nav */
+
+/* NAVIGATION
+   Row 1 — [search | border] LOGO [border | icons + CTA]
+   Row 2 — page links centred + Interflora pill on right */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-cream);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* --- Row 1 --- */
+.nav-row-1 {
+  display: flex;
+  align-items: stretch; /* children fill the full row height */
+  height: 56px;
+}
+
+/* Left section — search icon, has a right border as divider */
+.nav-row-1-left {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-right: 1px solid var(--color-border);
+}
+
+.nav-row-1-left .icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-row-1-left .icon-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Logo fills remaining space, centred */
+.nav-logo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-dark);
+  text-transform: uppercase;
+}
+
+/* Right section — icons + CTA, has a left border as divider */
+.nav-row-1-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+  border-left: 1px solid var(--color-border);
+}
+
+.nav-row-1-right .icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-row-1-right .icon-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* "Bestil nu" CTA — hidden on mobile */
+.nav-cta {
+  display: none;
+}
+
+/* Hamburger — shown on mobile */
+.nav-hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background-color: var(--color-dark);
+  border-radius: 2px;
+}
+
+/* --- Row 2: page links (hidden on mobile) --- */
+.nav-row-2 {
+  display: none;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Row 2 inner: flex so links stay centred and Interflora is pushed right */
+.nav-row-2-inner {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+}
+
+/* Page links list — takes up all remaining space and centres itself */
+.nav-links {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Individual nav link */
+.nav-links li a {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: rgba(23, 53, 60, 0.55);
+  padding: 6px 12px;
+  /* position: relative so we can place the underline pseudo-element */
+  position: relative;
+  transition: color 0.15s;
+}
+
+/* Hover: just darken the text — no lime, no background */
+.nav-links li a:hover {
+  color: var(--color-dark);
+}
+
+/* Active page: periwinkle 2px underline */
+.nav-links li a.active {
+  color: var(--color-dark);
+  font-weight: 500;
+}
+
+.nav-links li a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background-color: var(--color-blue);
+  border-radius: 1px;
+}
+
+/* Interflora pill */
+.nav-interflora {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-blue);
+  border: 1px solid var(--color-blue);
+  padding: 5px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+  transition:
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.nav-interflora:hover {
+  background-color: var(--color-blue);
+  color: var(--color-dark);
+}
+
+/* MOBILE NAVIGATION OVERLAY */
+.mobile-nav {
+  display: none; /* shown when .is-open is added by JS */
+  position: fixed;
+  inset: 0; /* shorthand for top/right/bottom/left: 0 */
+  background-color: var(--color-dark);
+  z-index: 200;
+  flex-direction: column;
+  padding: 28px 24px 48px;
+}
+
+.mobile-nav.is-open {
+  display: flex;
+}
+
+.mobile-nav-close {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: rgba(249, 247, 242, 0.6);
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+.mobile-nav ul li {
+  border-bottom: 1px solid rgba(205, 218, 255, 0.07);
+}
+
+.mobile-nav ul li a {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-cream);
+  padding: 14px 0;
+  letter-spacing: -0.04em;
+}
+
+.mobile-nav-cta-btn {
+  margin-top: 32px;
+  align-self: flex-start;
+}
+
+/* TICKER STRIP
+   Lime background, scrolling text */
+.ticker-strip {
+  overflow: hidden;
+  background-color: var(--color-strip-green);
+  padding: 10px 0;
+}
+
+.ticker-inner {
+  display: flex;
+  width: max-content; /* as wide as all items combined */
+  animation: ticker-scroll 24s linear infinite;
+}
+
+.ticker-inner span {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  padding: 0 20px;
+  white-space: nowrap;
+}
+
+.ticker-inner .ticker-dot {
+  color: rgba(23, 53, 60, 0.4);
+}
+
+/* SECTION HEADING ROW
+   Used above categories, products, gallery */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.section-head h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+}
+
+.section-head a {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.section-head a:hover {
+  color: var(--color-dark);
+}
+
+/* FOOTER */
+.site-footer {
+  background-color: var(--color-dark);
+  color: var(--color-cream);
+  margin-top: 48px;
+  /* bottom padding so sticky CTA doesn't cover content on mobile */
+  padding-bottom: 64px;
+}
+
+/* Brand block at the top of footer */
+.footer-brand {
+  padding: 40px 24px 32px;
+  border-bottom: 1px solid rgba(205, 218, 255, 0.12);
+}
+
+.footer-logo {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  /* Full cream — maximum contrast, this is the brand name */
+  color: rgba(205, 218, 255, 100);
+  margin-bottom: 10px;
+}
+
+.footer-tagline {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  /* 80% opacity — clearly readable body text on dark bg */
+  color: rgba(249, 247, 242, 0.8);
+  margin-bottom: 20px;
+  max-width: 300px;
+}
+
+/* Social icon links */
+.footer-social {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+}
+
+.footer-social a img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Interflora badge */
+.footer-badge {
+  display: inline-block;
+  border: 1px solid rgba(225, 254, 8, 0.45);
+  color: var(--color-lime);
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+/* Accordion link columns */
+.footer-col {
+  border-bottom: 1px solid rgba(205, 218, 255, 0.1);
+}
+
+/* The clickable heading that toggles the column open/closed */
+.footer-col-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  /*
+    Column headers
+  */
+  color: rgba(249, 247, 242, 0.6);
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.footer-col-btn .arrow {
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(249, 247, 242, 0.45);
+  transition: transform 0.2s;
+  line-height: 1;
+}
+
+/* When open, rotate + to form × */
+.footer-col.is-open .arrow {
+  transform: rotate(45deg);
+}
+
+/* Link list — hidden by default on mobile */
+.footer-col-links {
+  display: none;
+  padding: 4px 24px 20px;
+}
+
+/* Show links when column is open */
+.footer-col.is-open .footer-col-links {
+  display: block;
+}
+
+.footer-col-links li a {
+  display: block;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  /*
+    Links: 85% opacity gives ~6.5:1 contrast — well above WCAG AA (4.5:1).
+    Clear, readable, standard for footer links on dark backgrounds.
+  */
+  color: rgba(249, 247, 242, 0.85);
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(205, 218, 255, 0.06);
+}
+
+.footer-col-links li:last-child a {
+  border-bottom: none;
+}
+
+.footer-col-links li a:hover {
+  color: var(--color-cream);
+}
+
+/* Bottom bar: payment (left) + copyright (right) */
+.footer-bottom {
+  padding: 20px 24px;
+  /* More visible separator line */
+  border-top: 1px solid rgba(205, 218, 255, 0.15);
+}
+
+.footer-copyright {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: rgba(249, 247, 242, 0.5);
+  margin-bottom: 16px; /* mobile: stack below payment */
+}
+
+/* Payment method list — ul because it is a list of items */
+.footer-payment {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.footer-payment li img {
+  height: 22px;
+  width: auto;
+  display: block;
+}
+
+/* STICKY MOBILE CTA
+   Fixed bar at the bottom — hidden on desktop */
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  background-color: var(--color-lime);
+  text-align: center;
+}
+
+.sticky-cta a {
+  display: block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-dark);
+  padding: 15px;
+}
+
+/* DESKTOP STYLES  (min-width: 768px) */
+@media (min-width: 768px) {
+  /* Nav row 1 */
+  .nav-row-1 {
+    height: 64px;
+  }
+
+  .nav-row-1-left {
+    padding: 0 24px;
+  }
+
+  .nav-row-1-right {
+    padding: 0 24px;
+  }
+
+  .nav-hamburger {
+    display: none;
+  }
+
+  .nav-cta {
+    display: inline-block;
+  }
+
+  /* Nav row 2 */
+  .nav-row-2 {
+    display: block;
+  }
+
+  .nav-row-2-inner {
+    padding: 0 24px;
+  }
+
+  .nav-links li a {
+    font-size: 14px;
+    padding: 7px 14px;
+  }
+
+  /* Keep the active underline aligned with the new padding */
+  .nav-links li a.active::after {
+    left: 14px;
+    right: 14px;
+  }
+
+  /* Section headings */
+  .section-head {
+    padding: 0 32px;
+  }
+
+  .section-head h2 {
+    font-size: 22px;
+  }
+
+  /* Footer — side by side layout */
+  .site-footer {
+    padding-bottom: 0;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    border-bottom: 1px solid rgba(205, 218, 255, 0.15);
+  }
+
+  .footer-brand {
+    border-bottom: none;
+    border-right: 1px solid rgba(205, 218, 255, 0.12);
+    padding: 48px 32px 40px;
+  }
+
+  .footer-col {
+    border-bottom: none;
+    border-right: 1px solid rgba(205, 218, 255, 0.12);
+    padding-top: 48px;
+    padding-bottom: 40px;
+  }
+
+  .footer-col:last-child {
+    border-right: none;
+  }
+
+  /* On desktop, headings are not clickable — always expanded */
+  .footer-col-btn {
+    pointer-events: none;
+    padding: 0 32px 20px;
+  }
+
+  .footer-col-btn .arrow {
+    display: none;
+  }
+
+  .footer-col-links {
+    display: block; /* always visible on desktop */
+    padding: 0 32px 0;
+  }
+
+  .footer-col-links li a {
+    border-bottom: none;
+    padding: 5px 0;
+    font-size: 14px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 32px;
+  }
+
+  .footer-copyright {
+    margin-bottom: 0;
+  }
+
+  /* Hide sticky CTA on desktop */
+  .sticky-cta {
+    display: none;
+  }
+}

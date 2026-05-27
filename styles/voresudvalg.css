@@ -1,0 +1,557 @@
+/* RESET */
+
+:root {
+  --color-dark: #17353c; /* main dark green */
+  --color-teal: #005056; /* darker teal for hover */
+  --color-lime: #e1fe08; /* lime / accent */
+  --color-blue: #97b9ff; /* periwinkle — active underline, Interflora btn */
+  --color-blue-pale: #cddaff; /* pale blue for category icon circles */
+  --color-cream: #f9f7f2; /* page background */
+  --color-text: rgba(23, 53, 60, 0.75);
+  --color-text-muted: rgba(23, 53, 60, 0.5);
+  --color-border: rgba(23, 53, 60, 0.1);
+  --color-on-dark: rgba(249, 247, 242, 0.75);
+  --color-strip-green: rgba(212, 230, 0); /* page background */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-dark);
+  overflow-x: hidden;
+}
+
+/* MOBILE HEADER */
+.mobile-header {
+  display: none;
+}
+
+/* PAGE */
+.page {
+  padding: 2rem;
+}
+
+.intro h1 {
+  font-size: 32px;
+  margin-bottom: 0.5rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+/* INTRO */
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 0.5rem;
+}
+
+/* .intro h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+} */
+
+.intro-text {
+  max-width: 500px;
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* TOOLBAR */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.toolbar-left {
+  display: flex;
+  gap: 1rem;
+}
+
+.filter-btn,
+#sort-btn {
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  font-size: 0.85rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+#sort-btn {
+  background-image: none;
+}
+
+/* .toolbar-right {
+  width: 140px;
+  height: 30px;
+  background: #d9d9d9;
+} */
+
+/* PRODUCTS */
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.product {
+  background: #fff;
+}
+
+.products img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #ddd;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+.products img:hover {
+  transform: scale(1.02);
+}
+
+.product-info {
+  padding: 1rem;
+}
+
+.product-info h3 {
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.description {
+  font-size: 0.7rem;
+  color: #888;
+  margin-bottom: 0.7rem;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.price {
+  color: var(--color-text);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+/* LÆG I KURV KNAPPER */
+
+.product-info button {
+  background: #d7ff00;
+  border: none;
+  border-radius: 999px;
+  padding: 0.8rem 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 120px;
+  transition: all 0.2s ease;
+}
+
+.product-info button:hover {
+  background: #c7ef00;
+  transform: scale(1.05);
+}
+
+/* Se mere knap */
+
+.semereknap {
+  width: 180px;
+  height: 30px;
+  background: #d9d9d9;
+  margin: 2rem auto 3rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.semereknap p {
+  margin: 0;
+  font-family: "inter";
+  font-size: 16px;
+}
+.semereknap:hover {
+  background: #c7ef00;
+  transform: scale(1.05);
+}
+
+/* BENEFITS */
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  padding: 3rem 0;
+  gap: 2rem;
+}
+
+.benefit h4 {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.benefit p {
+  color: #777;
+  font-size: 0.8rem;
+}
+
+/* Stack and center each benefit's contents so the image sits under the text */
+.benefit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* HELP SECTION */
+.help-section {
+  background-color: var(--color-cream);
+  text-align: center;
+  padding: 4rem 2rem;
+  border: 1px solid #ccc;
+}
+
+.help-section {
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 15px;
+}
+/* 
+.benefit {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 10px;
+  border-right: 1px solid var(--color-border);
+  gap: 8px;
+} */
+
+.help-section h2 {
+  margin-bottom: 1rem;
+  font-family: "spacegrotesk";
+}
+
+.help-section p {
+  color: #666;
+  margin-bottom: 2rem;
+  font-family: "inter";
+}
+
+.help-section .kontakt-btn {
+  background: #d7ff00;
+  border: none;
+  border-radius: 999px;
+  padding: 1rem 4rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.kontakt-btn:hover {
+  background: #c7ef00;
+  transform: scale(1.05);
+}
+
+/*--- Sorter ---*/
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.product {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.product {
+  transition: 0.3s;
+}
+
+.products h3 {
+  font-size: 18px;
+}
+
+.products p {
+  font-size: 15px;
+}
+
+/*--- Iconer i bunden af siden ---*/
+
+.benefits h4 {
+  font-family: "spacegrotesk";
+}
+
+.benefits p {
+  font-family: "inter";
+}
+
+.benefit img {
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.benefits {
+  display: flex;
+  margin: 40px 16px 0;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.benefit {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 10px;
+  border-right: 1px solid var(--color-border);
+  gap: 8px;
+}
+
+/*--- Fold ud menu i nav ---*/
+/* 
+.dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  background: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  min-width: 150px;
+}
+
+.submenu li {
+  padding: 5px 0;
+}
+
+.dropdown.open .submenu {
+  display: block;
+} */
+
+/* .help-section {
+  background-image: url("/images/img_index/img_voresudvalg/Mappe/Hero\ Section.webp");
+} */
+
+/* Mobil version */
+
+@media (max-width: 768px) {
+  body {
+    background: #fff;
+  }
+
+  /* HEADER */
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #8fb2ff;
+    padding: 0.5rem;
+  }
+
+  .burger {
+    width: 48px;
+    height: 48px;
+    background: #ddd;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 0 10px;
+    cursor: pointer;
+  }
+
+  .burger span {
+    height: 2px;
+    background: #111;
+    display: block;
+  }
+
+  .mobile-logo {
+    background: #ddd;
+    width: 70px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  .mobile-icons {
+    display: flex;
+  }
+
+  .mobile-icons a {
+    width: 50px;
+    height: 48px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #111;
+    font-size: 0.7rem;
+    border-left: 1px solid #fff;
+  }
+
+  /* PAGE */
+  .page {
+    padding: 1rem;
+  }
+
+  .intro h1 {
+    font-size: 1.4rem;
+  }
+
+  .intro-text {
+    font-size: 0.8rem;
+  }
+
+  /* TOOLBAR */
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .toolbar-left {
+    width: 100%;
+  }
+
+  .filter-btn,
+  #sort-btn {
+    flex: 1;
+    padding: 0.8rem;
+    font-size: 0.7rem;
+  }
+
+  /* .toolbar-right {
+    width: 120px;
+    height: 24px;
+  } */
+
+  /* PRODUCTS */
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .product-info {
+    padding: 0.7rem;
+  }
+
+  .product-info h3 {
+    font-size: 0.55rem;
+  }
+
+  .description {
+    font-size: 0.5rem;
+  }
+
+  .price {
+    font-size: 0.55rem;
+  }
+
+  .product-info button {
+    width: 100%;
+    font-size: 0.55rem;
+    padding: 0.6rem;
+  }
+
+  /* BENEFITS */
+  .benefits {
+    padding: 2rem 0;
+    gap: 1rem;
+  }
+
+  .benefit h4 {
+    font-size: 0.7rem;
+  }
+
+  .benefit p {
+    font-size: 0.6rem;
+  }
+
+  /* HELP */
+  .help-section {
+    padding: 3rem 1rem;
+  }
+
+  .help-section h2 {
+    font-size: 1rem;
+  }
+
+  .help-section p {
+    font-size: 0.7rem;
+  }
+
+  .help-section button {
+    width: 220px;
+  }
+
+  .products h3 {
+    font-size: 15px;
+  }
+
+  .products p {
+    font-size: 12px;
+  }
+
+  /* .products button {
+  }*/
+}

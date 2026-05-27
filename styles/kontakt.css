@@ -1,0 +1,412 @@
+/* =============================================
+   KONTAKT.CSS
+   Styles only for kontakt.html
+   Page header · Form · Contact info · Map · FAQ
+   ============================================= */
+
+/* -----------------------------------------------
+   PAGE HEADER
+   Cream background, breadcrumb + h1 + subtitle
+----------------------------------------------- */
+.page-header {
+  padding: 28px 16px 32px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* .page-breadcrumb {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-bottom: 12px;
+}
+
+.page-breadcrumb a {
+  color: var(--color-text-muted);
+  transition: color 0.15s;
+}
+
+.page-breadcrumb a:hover {
+  color: var(--color-dark);
+}
+
+.page-breadcrumb span {
+  margin: 0 6px;
+} */
+
+/* .page-h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(32px, 6vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-dark);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+} */
+
+.page-subtitle {
+  max-width: 500px;
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.page-header h1 {
+  font-size: 32px;
+  margin-bottom: 0.5rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+/* -----------------------------------------------
+   MAIN CONTENT GRID
+   Mobile: stacked / Desktop: form left + info right
+----------------------------------------------- */
+.kontakt-main {
+  padding: 32px 16px 0;
+}
+
+/* On desktop this becomes a 2-column grid */
+.kontakt-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+/* -----------------------------------------------
+   CONTACT FORM — left column
+----------------------------------------------- */
+.form-section-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+}
+
+/* The * required marker */
+.form-label span {
+  color: var(--color-dark);
+  margin-left: 2px;
+}
+
+.form-input,
+.form-textarea {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: var(--color-dark);
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+  /* Remove browser default appearance */
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--color-dark);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Send button — full width lime */
+.form-submit {
+  display: block;
+  width: 100%;
+  background-color: var(--color-lime);
+  color: var(--color-dark);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: opacity 0.2s;
+}
+
+.form-submit:hover {
+  opacity: 0.85;
+}
+
+/* -----------------------------------------------
+   CONTACT INFO — right column
+----------------------------------------------- */
+.info-section-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  margin-bottom: 20px;
+}
+
+/* Each info item: icon on the left, text on the right */
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.info-item:first-of-type {
+  border-top: 1px solid var(--color-border);
+}
+
+.info-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.info-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info-label {
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.info-value {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  color: var(--color-dark);
+  line-height: 1.5;
+}
+
+.info-value a {
+  color: var(--color-teal);
+  transition: color 0.15s;
+}
+
+.info-value a:hover {
+  color: var(--color-dark);
+}
+
+/* -----------------------------------------------
+   MAP PLACEHOLDER
+   Light sage background, centred placeholder text
+----------------------------------------------- */
+.map-section-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-dark);
+  margin-top: 28px;
+  margin-bottom: 12px;
+}
+
+.map-placeholder {
+  width: 100%;
+  height: 180px;
+  background-color: #d5e5d8; /* light sage green */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-placeholder span {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: rgba(23, 53, 60, 0.4);
+  font-style: italic;
+}
+
+/* -----------------------------------------------
+   USP ROW  (same pattern as index — reused class)
+   Styles for .usp-row, .usp-cell etc. are in index.css
+   so we just set the outer margin for this page
+----------------------------------------------- */
+.kontakt-usp {
+  margin-top: 40px;
+}
+
+/* -----------------------------------------------
+   FAQ SECTION
+----------------------------------------------- */
+.faq-section {
+  padding: 32px 16px 0;
+}
+
+/* Header row: "Hurtige svar." left + link right */
+.faq-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 0;
+}
+
+.faq-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(18px, 3.5vw, 24px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--color-dark);
+}
+
+.faq-all-link {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.faq-all-link:hover {
+  color: var(--color-dark);
+}
+
+/* Individual FAQ item */
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq-item:first-of-type {
+  border-top: 1px solid var(--color-border);
+  margin-top: 16px;
+}
+
+/* The clickable question row */
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-question-text {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-dark);
+  line-height: 1.4;
+}
+
+.faq-icon {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+  line-height: 1;
+}
+
+/* When open, rotate + to × */
+.faq-item.is-open .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* Answer — hidden by default */
+.faq-answer {
+  display: none;
+  padding: 0 0 18px;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text);
+  max-width: 64ch;
+}
+
+.faq-item.is-open .faq-answer {
+  display: block;
+}
+
+/* -----------------------------------------------
+   DESKTOP STYLES (min-width: 768px)
+----------------------------------------------- */
+@media (min-width: 768px) {
+  /* Page header */
+  .page-header {
+    padding: 36px 32px 40px;
+  }
+
+  /* Main grid: form left (wider) + info right */
+  .kontakt-main {
+    padding: 40px 32px 0;
+  }
+
+  .kontakt-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  /* Map */
+  .map-placeholder {
+    height: 220px;
+  }
+
+  /* USP */
+  .kontakt-usp {
+    margin-top: 56px;
+  }
+
+  /* FAQ */
+  .faq-section {
+    padding: 40px 32px 0;
+  }
+
+  .faq-question-text {
+    font-size: 16px;
+  }
+}

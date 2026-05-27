@@ -1,0 +1,246 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-dark);
+  overflow-x: hidden;
+}
+
+h1,
+h2 {
+  font-family: "Space Grotesk", sans-serif;
+  margin-left: 95px;
+  padding: 10px;
+  font-size: 22px;
+}
+
+.eyebrow {
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+p {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #546e74;
+  margin-left: 95px;
+  margin-right: 95px;
+  padding: 10px;
+}
+
+.vores-historie {
+  margin-top: 4rem;
+}
+
+.vores-historie-div {
+  display: flex;
+}
+
+.omos h1 {
+  font-size: 32px;
+  margin-bottom: 0.5rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.omos p {
+  max-width: 500px;
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* .billede_omos {
+} */
+
+.billede_omos img {
+  /* border-radius: 10%; */
+  width: 90%;
+  margin: auto;
+  height: 450px;
+  padding: 30px;
+}
+
+.vores-værdier {
+  margin-top: 4rem;
+}
+
+.vores-værdier-div {
+  display: flex;
+}
+
+.vores-værdier-venstre,
+.vores-værdier-centrum,
+.vores-værdier-højre {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 16px;
+  gap: 8px;
+}
+
+.vores-værdier-overskrift {
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  color: var(--color-dark);
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.vores-værdier-txt {
+  flex: 1;
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: #888;
+  text-align: center;
+  padding: 1px;
+}
+
+.vores-værdier-img {
+  width: 44px;
+  height: 44px;
+}
+
+.vores-værdier-img img {
+  width: 100%;
+  height: 100%;
+}
+
+.mod-teamet {
+  margin-top: 4rem;
+}
+
+.team-div {
+  display: flex;
+}
+
+.team-venstre,
+.team-centrum,
+.team-højre {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 16px;
+  gap: 8px;
+}
+
+.team-overskrift {
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  color: var(--color-dark);
+  text-align: center;
+  font-weight: bold;
+}
+
+.team-txt {
+  flex: 1;
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: #888;
+  text-align: center;
+  padding: 1px;
+}
+
+.galleri-btn {
+  display: inline-block;
+  padding: 22px 48px;
+  border: 2px solid var(--color-dark);
+  border-radius: 40px;
+  color: var(--color-dark);
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+.galleri-btn:hover {
+  background-color: var(--color-dark);
+  color: #f5f2ec;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* -----------------------------------------------
+   USP ROW
+   Three icons with labels
+----------------------------------------------- */
+.usp-row {
+  display: flex;
+  margin: 40px 16px 0;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.usp-cell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 10px;
+  border-right: 1px solid var(--color-border);
+  gap: 8px;
+}
+
+.usp-cell:last-child {
+  border-right: none;
+}
+
+.usp-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.usp-icon img {
+  width: 44px;
+  height: 44px;
+}
+
+.usp-label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-dark);
+  line-height: 1.2;
+}
+
+.usp-sublabel {
+  font-family: "Inter", sans-serif;
+  font-size: 14 px;
+  color: var(--color-text-muted);
+  margin-top: -4px;
+}

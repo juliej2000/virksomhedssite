@@ -1,0 +1,763 @@
+/* INDEX.CSS */
+
+/* 
+   HERO SECTION
+ */
+.hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: 300px;
+  overflow: hidden;
+  background-color: #7fa8b0;
+}
+
+/* Ken Burns wrapper — sits between .hero and the img.
+   inset: -2% gives a tiny bleed so the slow drift never
+   reveals a hard edge at any viewport width.
+   transform-origin: 55% 45% drifts from slightly right-of-centre. */
+.hero-film {
+  position: absolute;
+  inset: -2%;
+  animation: kenBurns 16s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+  transform-origin: 55% 45%;
+}
+
+@keyframes kenBurns {
+  from {
+    transform: scale(1.08) translateX(0);
+  }
+  40% {
+    transform: scale(1.05) translateX(-0.5%);
+  }
+  to {
+    transform: scale(1) translateX(-1.5%);
+  }
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Shared fade-up — used by eyebrow, heading lines and CTA button */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top right, rgba(10, 30, 34, 0.7) 0%, rgba(10, 30, 34, 0.2) 50%, transparent 70%);
+}
+
+/* Season badge — anchored to the top-left of .hero
+   Works because .hero has position: relative
+   and .hero-badge is a direct child of .hero */
+.hero-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-lime);
+  border: 1px solid var(--color-lime);
+  padding: 5px 12px;
+  border-radius: 4px;
+}
+
+/* Eyebrow, heading and CTA — anchored to the bottom-left */
+.hero-content {
+  position: absolute;
+  bottom: 24px;
+  left: 20px;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(225, 254, 8, 0.75);
+  margin-bottom: 10px;
+  animation: fadeUp 0.9s ease-out 0.2s both;
+}
+
+.hero-heading {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(36px, 9vw, 96px);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+  color: var(--color-lime);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Each heading line staggers in using a CSS custom property.
+   One animation declaration covers all three. */
+.hero-line {
+  display: block;
+  --delay: 0s;
+  animation: fadeUp 0.8s ease-out var(--delay) both;
+}
+.hero-line-1 {
+  --delay: 0.45s;
+}
+.hero-line-2 {
+  --delay: 0.75s;
+}
+.hero-line-3 {
+  --delay: 1.05s;
+}
+
+/* CTA fades in last, after the headline is complete */
+.btn-lime.hero-btn {
+  animation: fadeUp 0.8s ease-out 1.4s both;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+}
+
+.btn-lime.hero-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(225, 254, 8, 0.3);
+}
+
+/* 
+   CATEGORIES SECTION
+   Card = top image area (icon centred) + bottom text area
+ */
+.categories {
+  padding: 36px 16px 0;
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.cat-card {
+  background-color: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cat-card-image {
+  /* Photo container — 4:3 landscape aspect ratio.
+     position: relative so the img can be absolute inside.
+     overflow: hidden clips the photo to the card edge.
+     flex: none — the aspect-ratio property controls height,
+     not flex-grow as before. */
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--color-blue-pale); /* fallback while loading */
+}
+
+/* Photo fills the container completely.
+   inset: 0 stretches to all four edges.
+   object-fit: cover fills without distortion — crops if needed.
+   transition enables the hover zoom below. */
+.cat-card-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+/* Subtle zoom on hover — consistent with product cards */
+.cat-card:hover .cat-card-image img {
+  transform: scale(1.04);
+}
+
+.cat-card-body {
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cat-name {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--color-dark);
+}
+
+.cat-description {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.cat-btn {
+  display: block;
+  background-color: var(--color-lime);
+  color: var(--color-dark);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 100px;
+  text-align: center;
+  transition: opacity 0.2s;
+}
+
+.cat-btn:hover {
+  opacity: 0.85;
+}
+
+/* -----------------------------------------------
+   PRODUCTS SECTION
+----------------------------------------------- */
+.products {
+  padding: 40px 16px 0;
+}
+
+/* Mobile: list rows */
+.products-list {
+  border-top: 1px solid var(--color-border);
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.product-thumb {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: var(--color-blue-pale);
+}
+
+.product-thumb img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-name {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin-bottom: 3px;
+}
+
+.product-price {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.product-row .btn-lime {
+  font-size: 12px;
+  padding: 9px 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Desktop: card grid (hidden on mobile) */
+.products-grid {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.product-card {
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--color-cream);
+}
+
+.product-card-photo {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background-color: var(--color-blue-pale);
+  overflow: hidden;
+}
+
+.product-card-photo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-card-photo img {
+  transform: scale(1.04);
+}
+
+.product-wish {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--color-lime);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.product-card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product-card-name {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.product-card-cat {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.product-card-price {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.product-card-btn {
+  display: block;
+  background-color: var(--color-lime);
+  color: var(--color-dark);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 11px;
+  border-radius: 6px;
+  margin-top: 12px;
+  transition: opacity 0.2s;
+}
+
+.product-card-btn:hover {
+  opacity: 0.85;
+}
+
+/* -----------------------------------------------
+   ILLUSTRATION BLOCK
+   Mobile:  photo stacked on top, text below
+   Desktop: photo left (55%), text right (45%)
+----------------------------------------------- */
+.illo-block {
+  display: flex;
+  flex-direction: column; /* stacked on mobile */
+  margin: 40px 16px 0;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* ── Photo column ──
+   position: relative + absolute img = photo fills
+   the column completely at any height.
+   aspect-ratio gives it a sensible height on mobile. */
+.illo-block .illo-image {
+  position: relative;
+  aspect-ratio: 4 / 3; /* mobile: landscape proportion */
+  overflow: hidden;
+  background-color: var(--color-blue-pale);
+  flex-shrink: 0;
+}
+
+.illo-block .illo-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ── Text column ──
+   flex column so cells stack.
+   Each cell gets a bottom border as section separator. */
+.illo-block .illo-text {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-cream);
+}
+
+/* Individual section cells inside the text column */
+.illo-cell {
+  padding: 24px 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.illo-cell:last-child {
+  border-bottom: none;
+  flex: 1; /* last cell fills remaining height */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: flex-start; /* stop button stretching to full width */
+}
+
+/* ── Heading ── */
+.illo-heading {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-dark);
+}
+
+/* ── Subheading ── */
+.illo-subheading {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(16px, 2.5vw, 22px);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+  color: var(--color-teal);
+}
+
+/* ── Body text ── */
+.illo-body {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--color-text);
+}
+
+/* -----------------------------------------------
+   GALLERY SECTION (home preview)
+----------------------------------------------- */
+.gallery-home {
+  padding: 40px 16px 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+/* -----------------------------------------------
+   GALLERY — home preview
+----------------------------------------------- */
+.gallery-home {
+  padding: 40px 16px 0;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+/* Each cell fades up on page load with a stagger.
+   Uses a CSS custom property so one @keyframes covers all. */
+.gallery-cell {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-blue-pale);
+  --delay: 0s;
+  animation: fadeUp 0.7s ease var(--delay) both;
+}
+
+.gallery-cell:nth-child(1) {
+  --delay: 0s;
+}
+.gallery-cell:nth-child(2) {
+  --delay: 0.14s;
+}
+.gallery-cell:nth-child(3) {
+  --delay: 0.26s;
+}
+
+/* Photo: elastic ease-out zoom + subtle drift on hover.
+   cubic-bezier(0.16, 1, 0.3, 1) = slow start, quick peak, glide to rest */
+.gallery-cell img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-cell:hover img {
+  transform: scale(1.07) translateX(-1%);
+}
+
+/* Dark gradient overlay — invisible by default, fades in on hover.
+   Gradient direction ensures the label at the bottom is always readable. */
+.gallery-label {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 30, 34, 0.62) 0%, rgba(10, 30, 34, 0.1) 45%, transparent 70%);
+  display: flex;
+  align-items: flex-end;
+  padding: 16px 14px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.gallery-cell:hover .gallery-label {
+  opacity: 1;
+}
+
+.gallery-label span {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-cream);
+  /* slide up slightly as the overlay fades in */
+  transform: translateY(4px);
+  transition: transform 0.4s ease;
+}
+
+.gallery-cell:hover .gallery-label span {
+  transform: translateY(0);
+}
+
+.gallery-cta {
+  text-align: center;
+  padding: 24px 0 0;
+}
+
+/* -----------------------------------------------
+   USP ROW
+----------------------------------------------- */
+.usp-row {
+  display: flex;
+  margin: 40px 16px 0;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.usp-cell {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 10px;
+  border-right: 1px solid var(--color-border);
+  gap: 8px;
+}
+
+.usp-cell:last-child {
+  border-right: none;
+}
+
+.usp-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.usp-icon img {
+  width: 44px;
+  height: 44px;
+}
+
+.usp-label {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-dark);
+  line-height: 1.2;
+}
+
+.usp-sublabel {
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: -4px;
+}
+
+/* -----------------------------------------------
+   DESKTOP STYLES (min-width: 768px)
+----------------------------------------------- */
+@media (min-width: 768px) {
+  /* Hero */
+  .hero {
+    aspect-ratio: 16 / 7;
+    min-height: 400px;
+  }
+
+  .hero-badge {
+    top: 28px;
+    left: 40px;
+  }
+
+  .hero-content {
+    bottom: 48px;
+    left: 40px;
+  }
+
+  /* Categories: 4 columns */
+  .categories {
+    padding: 48px 32px 0;
+  }
+
+  .cat-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  /* Products */
+  .products {
+    padding: 56px 32px 0;
+  }
+
+  .products-list {
+    display: none;
+  }
+
+  .products-grid {
+    display: grid;
+  }
+
+  /* Illo block — side by side on desktop */
+  .illo-block {
+    flex-direction: row; /* photo left · text right */
+    margin: 56px 32px 0;
+    min-height: 420px;
+  }
+
+  .illo-block .illo-image {
+    width: 55%; /* photo takes 55% of the row */
+    aspect-ratio: unset; /* let height be driven by the text column */
+    min-height: 420px;
+    flex-shrink: 0;
+    border-right: 1px solid var(--color-border);
+  }
+
+  .illo-cell {
+    padding: 28px 40px;
+  }
+
+  .illo-cell--heading {
+    padding-top: 40px;
+    padding-bottom: 28px;
+  }
+
+  .illo-cell--body {
+    padding-bottom: 40px;
+  }
+
+  /* Gallery — 3 equal columns on desktop */
+  .gallery-home {
+    padding: 56px 32px 0;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .gallery-cell {
+    aspect-ratio: 3 / 4;
+  }
+
+  /* USP */
+  .usp-row {
+    margin: 56px 32px 0;
+  }
+
+  .usp-cell {
+    padding: 32px 20px;
+  }
+
+  .usp-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .usp-icon img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .usp-label {
+    font-size: 14px;
+  }
+
+  .usp-sublabel {
+    font-size: 12px;
+  }
+}
