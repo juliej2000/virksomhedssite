@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <meta
+      name="description"
+      content="Frihedens Blomster — lokal blomsterbutik i Hvidovre. Håndlavede buketter, levering samme dag."
+    />
+    <title>Frihedens Blomster</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheets (order matters — general first, then layout, then page) -->
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/kurv.css" />
+  </head>
+  <body>
+    <!--  NAVIGATIONRow 1: search | LOGO | account + cart + CTA
+         Row 2: page links (desktop only) -->
+    <header>
+      <nav class="site-nav">
+        <!-- Row 1 -->
+        <div class="nav-row-1">
+          <div class="nav-row-1-left">
+            <button class="icon-btn" aria-label="Søg">
+              <img src="images/img_index/search_icon.svg" alt="" />
+            </button>
+          </div>
+
+          <a href="index.html" class="nav-logo">Frihedens Blomster</a>
+
+          <div class="nav-row-1-right">
+            <button class="icon-btn" aria-label="Min konto">
+              <img src="images/img_index/profile.svg" alt="" />
+            </button>
+            <button class="icon-btn" aria-label="Kurv">
+              <img src="images/img_index/kurv.svg" alt="" />
+            </button>
+            <a href="kontakt.html" class="btn-lime nav-cta">Bestil nu →</a>
+            <button class="nav-hamburger" aria-label="Åbn menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Row 2: page links (desktop only) -->
+        <div class="nav-row-2">
+          <div class="nav-row-2-inner">
+            <ul class="nav-links">
+              <li><a href="index.html">Forsiden</a></li>
+              <li><a href="vores-udvalg.html">Vores udvalg</a></li>
+              <li><a href="galleri.html">Galleri / Inspiration</a></li>
+              <li><a href="om-os.html" class="active">Om os</a></li>
+              <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+            <a
+              href="https://interflora.dk"
+              target="_blank"
+              rel="noopener"
+              class="nav-interflora"
+              >Interflora</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- MOBILE NAVIGATION OVERLAY -->
+    <div class="mobile-nav">
+      <button class="mobile-nav-close" aria-label="Luk menu">&times;</button>
+      <ul>
+        <li><a href="index.html">Vores udvalg</a></li>
+        <li><a href="galleri.html">Galleri / Inspiration</a></li>
+        <li><a href="om-os.html">Om os</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+      <a href="kontakt.html" class="btn-lime mobile-nav-cta-btn">Bestil nu →</a>
+    </div>
+
+    <!-- TICKER STRIP  (lime background, scrolling text) -->
+    <div class="ticker-strip" aria-hidden="true">
+      <div class="ticker-inner">
+        <span>Levering samme dag</span>
+        <span class="ticker-dot"> · </span>
+        <span>Bundet for hånd</span>
+        <span class="ticker-dot"> · </span>
+        <span>Fri levering over 500 kr.</span>
+        <span class="ticker-dot"> · </span>
+        <span>Interflora-partner</span>
+        <span class="ticker-dot"> · </span>
+        <span>Aktuelle · Sommer 2026</span>
+        <span class="ticker-dot"> · </span>
+        <!-- Duplicate set for seamless loop -->
+        <span>Levering samme dag</span>
+        <span class="ticker-dot"> · </span>
+        <span>Bundet for hånd</span>
+        <span class="ticker-dot"> · </span>
+        <span>Fri levering over 500 kr.</span>
+        <span class="ticker-dot"> · </span>
+        <span>Interflora-partner</span>
+        <span class="ticker-dot"> · </span>
+        <span>Aktuelle · Sommer 2026</span>
+        <span class="ticker-dot"> · </span>
+      </div>
+    </div>
+
+    <main class="cart-container">
+      <h1 class="cart-title">Din kurv</h1>
+
+      <div class="cart-layout">
+        <section class="cart-items">
+          <div class="cart-item">
+            <div class="item-image">
+              <div
+                class="placeholder-img"
+                style="background-color: #e2e8f0"
+              ></div>
+            </div>
+            <div class="item-details">
+              <h2>Sommerbuket 2026</h2>
+              <p class="item-meta">Håndbundet • Frihedens blomster</p>
+              <span class="item-price">Fra 349,00 kr.</span>
+            </div>
+            <div class="item-quantity">
+              <label for="qty-1">Antal:</label>
+              <input type="number" id="qty-1" value="1" min="1" disabled />
+            </div>
+            <button class="remove-btn" title="Fjern vare">×</button>
+          </div>
+
+          <div class="cart-item">
+            <div class="item-image">
+              <div
+                class="placeholder-img"
+                style="background-color: #cbd5e1"
+              ></div>
+            </div>
+            <div class="item-details">
+              <h2>Bryllupsbuket – Special</h2>
+              <p class="item-meta">Håndbundet • Interflora blomster</p>
+              <span class="item-price">Fra 799,00 kr.</span>
+            </div>
+            <div class="item-quantity">
+              <label for="qty-2">Antal:</label>
+              <input type="number" id="qty-2" value="1" min="1" disabled />
+            </div>
+            <button class="remove-btn" title="Fjern vare">×</button>
+          </div>
+        </section>
+
+        <aside class="cart-summary">
+          <h2>Oversigt</h2>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <span>1.148,00 kr.</span>
+          </div>
+          <div class="summary-row">
+            <span>Levering</span>
+            <span class="free-shipping">Fri fragt (Over 400 kr.)</span>
+          </div>
+          <hr class="summary-divider" />
+          <div class="summary-row total-row">
+            <span>Total (inkl. moms)</span>
+            <span>1.148,00 kr.</span>
+          </div>
+
+          <button class="btn-checkout">Gå til betaling →</button>
+          <a href="#" class="continue-shopping">← Fortsæt indkøb</a>
+        </aside>
+      </div>
+    </main>
+
+    <!-- USP ROW  — three key promises -->
+    <section class="usp-row" aria-label="Vores løfter">
+      <div class="usp-cell">
+        <div class="usp-icon">
+          <img src="images/img_index/usp_dag.svg" alt="" />
+        </div>
+        <p class="usp-label">Samme dag</p>
+        <p class="usp-sublabel">Bestil inden kl. 12</p>
+      </div>
+
+      <div class="usp-cell">
+        <div class="usp-icon">
+          <img src="images/img_index/usp_fragt.svg" alt="" />
+        </div>
+        <p class="usp-label">Fri fragt</p>
+        <p class="usp-sublabel">Over 400 kr.</p>
+      </div>
+
+      <div class="usp-cell">
+        <div class="usp-icon">
+          <img src="images/img_index/usp_interflora.svg" alt="" />
+        </div>
+        <p class="usp-label">Interflora</p>
+        <p class="usp-sublabel">Autoriseret partner</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <p class="footer-logo">Frihedens Blomster</p>
+          <p class="footer-tagline">
+            Lokal blomsterbutik siden 1987. Faglærte hænder, friske blomster og
+            levering, der faktisk virker.
+          </p>
+
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">
+              <img src="images/img_index/instagram_icon.svg" alt="Instagram" />
+            </a>
+            <a href="#" aria-label="Facebook">
+              <img src="images/img_index/fb_icon.svg" alt="Facebook" />
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <img src="images/img_index/linkedin_icon.svg" alt="LinkedIn" />
+            </a>
+          </div>
+
+          <span class="footer-badge">Interflora-partner · Global levering</span>
+        </div>
+
+        <!-- Accordion columns -->
+        <div class="footer-col">
+          <button class="footer-col-btn">
+            <span>Butikken</span>
+            <span class="arrow">+</span>
+          </button>
+          <div class="footer-col-links">
+            <ul>
+              <li><a href="#">Buketter</a></li>
+              <li><a href="#">Bryllup</a></li>
+              <li><a href="#">Sorg</a></li>
+              <li><a href="#">Planter</a></li>
+              <li><a href="#">Gavekort</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <button class="footer-col-btn">
+            <span>Information</span>
+            <span class="arrow">+</span>
+          </button>
+          <div class="footer-col-links">
+            <ul>
+              <li><a href="om-os.html">Om os</a></li>
+              <li><a href="#">Levering</a></li>
+              <li>
+                <a href="https://interflora.dk" target="_blank" rel="noopener"
+                  >Interflora</a
+                >
+              </li>
+              <li><a href="#">Handelsbetingelser</a></li>
+              <li><a href="#">Privatlivspolitik</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <button class="footer-col-btn">
+            <span>Kontakt</span>
+            <span class="arrow">+</span>
+          </button>
+          <div class="footer-col-links">
+            <ul>
+              <li><a href="tel:+4536751234">36 75 12 34</a></li>
+              <li>
+                <a href="mailto:blomster@frihedens.dk">blomster@frihedens.dk</a>
+              </li>
+              <li><a href="#">Hvidovre Strandvej 12</a></li>
+              <li><a href="#">2650 Hvidovre</a></li>
+              <li><a href="#">Man–lør 9–18</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom: payment icons (left) + copyright (right) -->
+      <div class="footer-bottom">
+        <ul class="footer-payment" aria-label="Betalingsmetoder">
+          <li><img src="images/img_index/visa_icon.svg" alt="Visa" /></li>
+          <li>
+            <img src="images/img_index/mastercard_icon.svg" alt="Mastercard" />
+          </li>
+          <li><img src="images/img_index/maestro_icon.svg" alt="Maestro" /></li>
+          <li>
+            <img src="images/img_index/mobilepay_icon.svg" alt="MobilePay" />
+          </li>
+          <li>
+            <img src="images/img_index/applepay_icon.svg" alt="Apple Pay" />
+          </li>
+          <li>
+            <img src="images/img_index/googlepay_icon.svg" alt="Google Pay" />
+          </li>
+        </ul>
+
+        <p class="footer-copyright">© 2026 Frihedens Blomster</p>
+      </div>
+    </footer>
+
+    <!-- STICKY MOBILE CTA  (hidden on desktop) -->
+    <div class="sticky-cta">
+      <a href="#kategorier">Vis alle buketter →</a>
+    </div>
+
+    <!-- JavaScript — at the bottom so the page loads first -->
+    <script src="javascript/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Siden findes ikke — Frihedens Blomster" />
+    <title>404 — Frihedens Blomster</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/404.css" />
+  </head>
+  <body class="error-page">
+    <!--
+      BACKGROUND IMAGE
+      Positioned absolute, fills viewport, sits beneath all overlays.
+      fetchpriority="high" because it IS the page — load it first.
+    -->
+    <img class="error-bg" src="images/img_index/404.webp" alt="" fetchpriority="high" aria-hidden="true" />
+
+    <!--
+      OVERLAYS
+      Two stacked divs:
+      1. Radial — darkens edges, floats the centre
+      2. Linear — darkens bottom where text sits
+      Together they make any text readable without hiding the image.
+    -->
+    <div class="error-overlay-radial" aria-hidden="true"></div>
+    <div class="error-overlay-linear" aria-hidden="true"></div>
+
+    <!-- MAIN CONTENT -->
+    <main class="error-main">
+      <p class="error-eyebrow">Side ikke fundet</p>
+
+      <p class="error-number">404</p>
+
+      <h1 class="error-heading">
+        <span class="error-heading-line1">Den blomst</span>
+        <span class="error-heading-line2">fandtes ikke.</span>
+      </h1>
+
+      <p class="error-body">
+        Siden du ledte efter er visnet, flyttet eller aldrig plantet.<br />
+        Men vores butik er stadig fuld af friske ting.
+      </p>
+
+      <div class="error-actions">
+        <a href="index.html" class="error-btn-primary">← Gå til forsiden</a>
+        <a href="kontakt.html" class="error-btn-secondary">Kontakt os</a>
+      </div>
+    </main>
+
+    <script src="javascript/login.js"></script>
+  </body>
+</html>
